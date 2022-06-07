@@ -33,7 +33,7 @@ const Navbar = () => {
               aria-label="Mostrar los productos en el carrito"
               color="inherit"
             >
-              <Badge badgeContent={2} color="secondary">
+              <Badge badgeContent={2} color="secondary" overlap="rectangular">
                 <ShoppingCart />
               </Badge>
             </IconButton>
