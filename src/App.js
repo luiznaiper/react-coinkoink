@@ -1,12 +1,7 @@
-<<<<<<< HEAD
-import React from 'react'
-
-import {Products, Navbar} from "./components"
-=======
 import React, {useState, useEffect} from 'react'
+import {Navbar} from './components/Navbar/Navbar.jsx'
 import {commerce} from "./lib/commerce"
 import { Products } from './components/Products/Products'
->>>>>>> a713a758fd4964e710619d871a55984b8f835fd3
 
 const App = () => {
   const [products, setProducts] = useState([])
