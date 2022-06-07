@@ -3,23 +3,7 @@ import Grid from "@material-ui/core/Grid";
 import { Product } from "./Product/Product";
 import useStyles from "./styles";
 
-const products = [
-  {
-    id: 1,
-    name: "Lelé día de muertos",
-    price: "$5",
-    image:
-      "https://coinkoink.mx/assets/img/portfolio/festividades/lele-muerta.jpg",
-  },
-  {
-    id: 2,
-    name: "Bulbasaur",
-    price: "$10",
-    image: "https://coinkoink.mx/assets/img/portfolio/anime/bulbasaur.jpg",
-  },
-];
-
-const Products = () => {
+const Products = ({ products }) => {
   const classes = useStyles();
   return (
     <main className={classes.content}>

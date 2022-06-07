@@ -16,10 +16,11 @@ const App = () => {
   }, [])
 
   console.log(products)
+
   return (
     <div>
          <Navbar/>
-        <Products />
+        <Products products={products}/>
     </div>
   )
 }
