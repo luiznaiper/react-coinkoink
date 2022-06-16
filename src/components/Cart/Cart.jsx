@@ -4,7 +4,7 @@ import useStyles from "./styles";
 import { CartItem } from "./CartItem/CartItem";
 
 const Cart = ({ cart }) => {
-  const classes = useStyles;
+  const classes = useStyles();
 
   const EmptyCart = () => (
     <Typography variant="subtitle1">
