@@ -12,7 +12,7 @@ import { ShoppingCart } from "@material-ui/icons";
 import logo from "../../assets/logo-coink-oink.svg";
 import useStyles from "./styles";
 
-const Navbar = () => {
+const Navbar = ({ totalItems }) => {
   const classes = useStyles();
   return (
     <React.Fragment>
@@ -33,7 +33,11 @@ const Navbar = () => {
               aria-label="Mostrar los productos en el carrito"
               color="inherit"
             >
-              <Badge badgeContent={2} color="secondary" overlap="rectangular">
+              <Badge
+                badgeContent={totalItems}
+                color="secondary"
+                overlap="rectangular"
+              >
                 <ShoppingCart />
               </Badge>
             </IconButton>
