@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Typography, Button, Grid } from "@material-ui/core";
+import { Link } from "react-router-dom";
 import useStyles from "./styles";
 import { CartItem } from "./CartItem/CartItem";
 
@@ -8,7 +9,11 @@ const Cart = ({ cart }) => {
 
   const EmptyCart = () => (
     <Typography variant="subtitle1">
-      No tienes ningún cerdito agregado, ¡Adelante! Elige tu favorito 🐽
+      No tienes ningún cerdito agregado, ¡Adelante!
+      <Link to="/" className={classes.Link}>
+        {" "}
+        Elige tu favorito 🐽
+      </Link>
     </Typography>
   );
 

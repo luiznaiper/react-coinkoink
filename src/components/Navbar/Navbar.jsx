@@ -9,16 +9,25 @@ import {
   Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
+import { Link, useLocation } from "react-router-dom";
 import logo from "../../assets/logo-coink-oink.svg";
 import useStyles from "./styles";
 
 const Navbar = ({ totalItems }) => {
   const classes = useStyles();
+  const location = useLocation();
+
   return (
     <React.Fragment>
       <AppBar position="fixed" className="classes.appBar" color="inherit">
         <Toolbar>
-          <Typography variant="h6" className={classes.title} color="inherit">
+          <Typography
+            variant="h6"
+            className={classes.title}
+            color="inherit"
+            component={Link}
+            to="/"
+          >
             <img
               src={logo}
               alt="Coink Oink"
@@ -28,20 +37,24 @@ const Navbar = ({ totalItems }) => {
             Coink Oink
           </Typography>
           <div className={classes.grow} />
-          <div className={classes.button}>
-            <IconButton
-              aria-label="Mostrar los productos en el carrito"
-              color="inherit"
-            >
-              <Badge
-                badgeContent={totalItems}
-                color="secondary"
-                overlap="rectangular"
+          {location.pathname === "/" && (
+            <div className={classes.button}>
+              <IconButton
+                component={Link}
+                to="/carrito"
+                aria-label="Mostrar los productos en el carrito"
+                color="inherit"
               >
-                <ShoppingCart />
-              </Badge>
-            </IconButton>
-          </div>
+                <Badge
+                  badgeContent={totalItems}
+                  color="secondary"
+                  overlap="rectangular"
+                >
+                  <ShoppingCart />
+                </Badge>
+              </IconButton>
+            </div>
+          )}
         </Toolbar>
       </AppBar>
     </React.Fragment>
