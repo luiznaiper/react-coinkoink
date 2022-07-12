@@ -56,12 +56,11 @@ const AddressForm = ({checkoutToken, next}) => {
         <FormProvider {...methods}> 
         <form onSubmit={methods.handleSubmit((data) => next({ ...data, shippingCountry, shippingSubdivision, shippingOption }))}>
                 <Grid container spacing={3}>
-                <FormInput name='nombre' label='Nombre'/>
-                <FormInput name='apellido' label='Apellido'/>
-                <FormInput name='direccion1' label='Dirección'/>
+                <FormInput name='firstName' label='Nombre'/>
+                <FormInput name='lastName' label='Apellido'/>
+                <FormInput name='address1' label='Dirección'/>
                 <FormInput name='email' label='Email'/>
-                <FormInput name='Ciudad' label='Ciudad'/>
-                <FormInput name='CP' label='Código Postal'/>
+                <FormInput name='zip' label='Código Postal'/>
                 <Grid item xs={12} sm={6}>
                     <InputLabel>País de envío</InputLabel>
                     <Select value={shippingCountry} fullWidth onChange={(e) => setShippingCountry(e.target.value)}>                      
@@ -73,7 +72,7 @@ const AddressForm = ({checkoutToken, next}) => {
                     </Select>
                 </Grid>
                 <Grid item xs={12} sm={6}>
-                    <InputLabel>Ciudad de envío</InputLabel>
+                    <InputLabel>Estado</InputLabel>
                     <Select value={shippingSubdivision} fullWidth onChange={(e) => setShippingSubdivision(e.target.value)}>                      
                     {subdivisions.map((subdivision) => (
                       <MenuItem key={subdivision.id} value={subdivision.id}>
@@ -82,6 +81,7 @@ const AddressForm = ({checkoutToken, next}) => {
                     ))}                      
                     </Select>
                 </Grid>
+                <FormInput name='city' label='Ciudad'/>
                 <Grid item xs={12} sm={6}>
                     <InputLabel>Opciones de envío</InputLabel>
                     <Select value={shippingOption} fullWidth onChange={(e) => setShippingOption(e.target.value)}>                      

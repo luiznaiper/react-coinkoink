@@ -21,6 +21,7 @@ const PaymentForm = ({checkoutToken, backStep, shippingData, onCaptureCheckout, 
       const orderData = {
         line_items: checkoutToken.live.line_items,
         customer: {firstname: shippingData.firstName, lastname: shippingData.lastName, email: shippingData.email},
+        fullfillment: {shipping_method: shippingData.shippingOption},
         shipping: {
            name: 'Primary',
            street: shippingData.address1,
@@ -29,7 +30,6 @@ const PaymentForm = ({checkoutToken, backStep, shippingData, onCaptureCheckout, 
            postal_zip_code: shippingData.zip,
            country: shippingData.shippingCountry,
           },
-          fullfillment: {shipping_method: shippingData.shippingOption},
           payment: {
             gateway: 'stripe',
             stripe: {
@@ -39,6 +39,11 @@ const PaymentForm = ({checkoutToken, backStep, shippingData, onCaptureCheckout, 
 
       }
       onCaptureCheckout(checkoutToken.id, orderData)
+      console.log(orderData)
+      console.log(orderData.customer.firstname)
+      console.log(orderData.fullfillment.shipping_method)
+
+
       nextStep()
     }
 
