@@ -10,7 +10,7 @@ import {
   Button,
   CssBaseline,
 } from "@material-ui/core";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { commerce } from "../../../lib/commerce";
 import useStyles from "./styles";
 import { AddressForm } from "../AddressForm";
@@ -23,6 +23,7 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
   const [checkoutToken, setCheckoutToken] = useState(null);
   const [shippingData, setShippingData] = useState({});
   const classes = useStyles();
+  const location = useLocation();
 
   useEffect(() => {
     if (cart.id) {
@@ -32,8 +33,8 @@ const Checkout = ({ cart, order, onCaptureCheckout, error }) => {
             type: "cart",
           });
           setCheckoutToken(token);
-        } catch {
-          //if (activeStep !== steps.length) history.push('/');
+        } catch (error) {
+          location.pushState("/");
         }
       };
 
