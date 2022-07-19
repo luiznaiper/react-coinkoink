@@ -4,8 +4,6 @@ import {
   Toolbar,
   IconButton,
   Badge,
-  MenuItem,
-  Menu,
   Typography,
 } from "@material-ui/core";
 import { ShoppingCart } from "@material-ui/icons";
@@ -26,7 +24,7 @@ const Navbar = ({ totalItems }) => {
             className={classes.title}
             color="inherit"
             component={Link}
-            to="/"
+            to="/productos"
           >
             <img
               src={logo}
@@ -37,7 +35,7 @@ const Navbar = ({ totalItems }) => {
             Coink Oink
           </Typography>
           <div className={classes.grow} />
-          {location.pathname === "/" && (
+          {location.pathname === "/productos" && (
             <div className={classes.button}>
               <IconButton
                 component={Link}
